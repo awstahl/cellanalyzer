@@ -20,7 +20,7 @@ Current State/TODO's
 =============
 
 Blockers:
-- Blackphone's PrivateOS appears to have limited or restricted support for the android.telephony API
+- Blackphone's PrivatOS appears to have limited or restricted support for the android.telephony API
 - Calling getAllCellInfo() appears to always return null, but this needs further testing
 - Calling getNeighboringCellInfo() appears to work, but doesn't provide data w/ clear FCC DB correlation
 -- Need to research using location data
