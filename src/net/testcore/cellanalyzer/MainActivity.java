@@ -4,11 +4,13 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 //import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.CellInfo;
 import android.telephony.NeighboringCellInfo;
 import android.telephony.TelephonyManager;
+import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
 //import android.view.View;
@@ -22,15 +24,18 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		TelephonyStrings tStr = new TelephonyStrings((TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE));
-
+		this.writeViews();
+}
+	
+	private void writeViews() {
+		TelephonyStrings tStr = new TelephonyStrings((TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE), getResources());
 		((TextView) findViewById(R.id.net_id_val)).setText(tStr.getNetworkOperator());		
 		((TextView) findViewById(R.id.nname_info_val)).setText(tStr.getNetworkOperatorName());
 		((TextView) findViewById(R.id.cell_info_val)).setText(tStr.getCellInfo());
 		((TextView) findViewById(R.id.neigh_info_val)).setText(tStr.getNeighborInfo());
 		((TextView) findViewById(R.id.ntype_id_val)).setText(tStr.getNetworkType());
-		
-}
+		((TextView) findViewById(R.id.data_state_val)).setText(tStr.getDataState());
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -52,13 +57,15 @@ public class MainActivity extends Activity {
 	}
 }
 
-// Wrapper class with logic to expose 
+// Proxy class with logic to expose 
 // TelephonyManager data as strings
 class TelephonyStrings {
 	private TelephonyManager tMgr;
+	private Resources res;
 
-	public TelephonyStrings(TelephonyManager tm) {
+	public TelephonyStrings(TelephonyManager tm, Resources r) {
 		tMgr = tm;
+		res = r;
 	}
 	
 	public String getNetworkOperator() {
@@ -114,31 +121,31 @@ class TelephonyStrings {
 		return nrpt;
 	}
 
-	// TODO: Translate the f*in ntype int to its string network type. Fuck java.
 	public String getNetworkType() {
-		int ntype =  tMgr.getNetworkType();
 		String type = null;
-		System.out.println("Reported network type: " + ntype);
-		
-		// java: i liek to type alot...
-		switch(ntype) {
-		case TelephonyManager.NETWORK_TYPE_CDMA:
-			type = "CDMA";
-			break;
-		case TelephonyManager.NETWORK_TYPE_HSDPA:
-			type = "HSDPA";
-			break;
-		case TelephonyManager.NETWORK_TYPE_HSPA:
-			type = "HSPA";
-			break;
-		case TelephonyManager.NETWORK_TYPE_LTE:
-			type = "LTE";
-			break;
-		default:
-			type = "unknown";
-		}
-		
+
+		SparseArray<String> types = new SparseArray<String>();
+		types.append(TelephonyManager.NETWORK_TYPE_CDMA, "CDMA");
+		types.append(TelephonyManager.NETWORK_TYPE_HSDPA, "HSDPA");
+		types.append(TelephonyManager.NETWORK_TYPE_HSPA, "HSPA");
+		types.append(TelephonyManager.NETWORK_TYPE_LTE, "LTE");
+
+		type = types.get(tMgr.getNetworkType());
 		System.out.println("Found network type: " + type);
 		return type;
+	}
+
+	public String getDataState() {
+		String state = null;
+	
+		SparseArray<String> states = new SparseArray<String>();
+		states.append(TelephonyManager.DATA_DISCONNECTED, res.getString(R.string.dstate_discon));
+		states.append(TelephonyManager.DATA_CONNECTED, res.getString(R.string.dstate_conn));
+		states.append(TelephonyManager.DATA_CONNECTING, res.getString(R.string.dstate_conning));
+		states.append(TelephonyManager.DATA_SUSPENDED, res.getString(R.string.dstate_susp));
+
+		state = states.get(tMgr.getDataState());
+		System.out.println("Found network state: " + state);
+		return state;
 	}
 }

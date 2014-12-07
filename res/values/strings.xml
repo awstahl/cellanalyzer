@@ -8,5 +8,10 @@
     <string name="cell_info_lbl">Cells?</string>
 	<string name="neigh_info_lbl">Neighbors?</string>
 	<string name="ntype_id_lbl">Network type: </string>
-    
+	<string name="data_state_lbl">Data state: </string>
+
+	<string name="dstate_discon">Disconnected</string>
+	<string name="dstate_conn">Connected</string>
+	<string name="dstate_conning">Connecting...</string>
+	<string name="dstate_susp">Suspended</string>
 </resources>

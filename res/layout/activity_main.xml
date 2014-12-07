@@ -98,5 +98,24 @@
         android:layout_toEndOf="@+id/ntype_id_lbl"
         android:layout_width="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/data_state_lbl"
+        android:layout_below="@+id/ntype_id_lbl"
+        android:layout_height="26dp"
+        android:layout_marginEnd="5dp"
+        android:layout_width="wrap_content"
+        android:text="@string/data_state_lbl"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    
+    <TextView
+        android:id="@+id/data_state_val"
+        android:layout_alignBaseline="@+id/data_state_lbl"
+        android:layout_below="@+id/ntype_id_val"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/data_state_lbl"
+        android:layout_width="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    
     
 </RelativeLayout>
