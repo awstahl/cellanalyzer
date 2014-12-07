@@ -11,37 +11,56 @@
     tools:context="net.testcore.cellanalyzer.MainActivity" >
 
     <TextView
-        android:id="@+id/cell_info_lbl"
+        android:id="@+id/net_id_lbl"
         android:layout_alignParentTop="true"
-        android:layout_width="wrap_content"
         android:layout_height="26dp"
         android:layout_marginEnd="5dp"
+        android:layout_width="wrap_content"
+        android:text="@string/net_id_lbl"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/net_id_val"
+        android:layout_alignBaseline="@+id/net_id_lbl"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/net_id_lbl"
+        android:layout_width="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    
+    <TextView
+        android:id="@+id/cell_info_lbl"
+        android:layout_below="@+id/net_id_lbl"
+        android:layout_height="26dp"
+        android:layout_marginEnd="5dp"
+        android:layout_width="wrap_content"
         android:text="@string/cell_info_lbl"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/cell_info_val"
-        android:layout_width="wrap_content"
+        android:layout_alignBaseline="@+id/cell_info_lbl"
+        android:layout_below="@+id/net_id_val"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/cell_info_lbl"
+        android:layout_width="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/neigh_info_lbl"
-        android:layout_width="wrap_content"
-        android:layout_height="26dp"
         android:layout_below="@+id/cell_info_lbl"
+        android:layout_height="26dp"
         android:layout_marginEnd="5dp"
+        android:layout_width="wrap_content"
         android:text="@string/neigh_info_lbl"
         android:textAppearance="?android:attr/textAppearanceSmall" />
     
     <TextView
         android:id="@+id/neigh_info_val"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/neigh_info_lbl"
-        android:layout_toEndOf="@+id/neigh_info_lbl"
         android:layout_below="@+id/cell_info_val"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/neigh_info_lbl"
+        android:layout_width="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall" />
     
 </RelativeLayout>

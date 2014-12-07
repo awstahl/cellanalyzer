@@ -3,6 +3,7 @@
 
     <string name="app_name">Cell Analyzer</string>
     <string name="action_settings">Settings</string>
+    <string name="net_id_lbl">Network ID: </string>
     <string name="cell_info_lbl">Cells?</string>
 	<string name="neigh_info_lbl">Neighbors?</string>
     

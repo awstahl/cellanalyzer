@@ -4,15 +4,15 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
+//import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.CellInfo;
 import android.telephony.NeighboringCellInfo;
 import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
+//import android.view.View;
+//import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -24,14 +24,16 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		TelephonyManager tMgr = (TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
-		System.out.println("Network operator: " + tMgr.getNetworkOperator());
+		String net = tMgr.getNetworkOperator();
+		System.out.println("Network operator: " + net);
+		((TextView) findViewById(R.id.net_id_val)).setText(net);
 		
 		List<CellInfo> cells = tMgr.getAllCellInfo();
 		TextView cell_val = (TextView) findViewById(R.id.cell_info_val);
 		String crpt = null;
 		if (cells == null || cells.isEmpty()) {
 			crpt = "no cells found";
-			System.out.println("[ALLCELLINFO]:" + crpt);
+			System.out.println("[ALLCELLINFO]: " + crpt);
 		}
 		else {
 			crpt = "We're ok... found " + cells.size() + " cells";
