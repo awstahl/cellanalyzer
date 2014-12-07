@@ -26,10 +26,28 @@
         android:layout_toEndOf="@+id/net_id_lbl"
         android:layout_width="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall" />
-    
+
+    <TextView
+        android:id="@+id/nname_info_lbl"
+        android:layout_below="@+id/net_id_lbl"
+        android:layout_height="26dp"
+        android:layout_marginEnd="5dp"
+        android:layout_width="wrap_content"
+        android:text="@string/nname_info_lbl"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/nname_info_val"
+        android:layout_alignBaseline="@+id/nname_info_lbl"
+        android:layout_below="@+id/net_id_val"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/nname_info_lbl"
+        android:layout_width="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
     <TextView
         android:id="@+id/cell_info_lbl"
-        android:layout_below="@+id/net_id_lbl"
+        android:layout_below="@+id/nname_info_lbl"
         android:layout_height="26dp"
         android:layout_marginEnd="5dp"
         android:layout_width="wrap_content"
@@ -39,7 +57,7 @@
     <TextView
         android:id="@+id/cell_info_val"
         android:layout_alignBaseline="@+id/cell_info_lbl"
-        android:layout_below="@+id/net_id_val"
+        android:layout_below="@+id/nname_info_val"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/cell_info_lbl"
         android:layout_width="wrap_content"
@@ -60,6 +78,24 @@
         android:layout_below="@+id/cell_info_val"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/neigh_info_lbl"
+        android:layout_width="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/ntype_id_lbl"
+        android:layout_below="@+id/neigh_info_lbl"
+        android:layout_height="26dp"
+        android:layout_marginEnd="5dp"
+        android:layout_width="wrap_content"
+        android:text="@string/ntype_id_lbl"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    
+    <TextView
+        android:id="@+id/ntype_id_val"
+        android:layout_alignBaseline="@+id/ntype_id_lbl"
+        android:layout_below="@+id/neigh_info_val"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/ntype_id_lbl"
         android:layout_width="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall" />
     
