@@ -120,7 +120,7 @@ class TelephonyStrings {
 		String type = null;
 		System.out.println("Reported network type: " + ntype);
 		
-		// java: the more verbose the better...
+		// java: i liek to type alot...
 		switch(ntype) {
 		case TelephonyManager.NETWORK_TYPE_CDMA:
 			type = "CDMA";
